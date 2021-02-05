@@ -10,7 +10,7 @@ static void *child(void *ignored) {
     return NULL;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     pthread_t child_thread;
     int code;
     char enter;
