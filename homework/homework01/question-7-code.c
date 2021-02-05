@@ -18,7 +18,7 @@ int main(int arc, char *argv[]){
   printf("Enter your religious affiliation: ");
   scanf("%s", &religion);
     
-  printf("\nOUTPUT\n---------------------------\n name: %s\nage: %s\n class year: %s\n sign: %s\n net worth: %s\n religion: %s\n", name, age, year, sign, netWorth, religion);
+  printf("\nOUTPUT\n---------------------------\n name: %s\n age: %s\n class year: %s\n sign: %s\n net worth: %s\n religion: %s\n", name, age, year, sign, netWorth, religion);
 
   return 0;
 }
