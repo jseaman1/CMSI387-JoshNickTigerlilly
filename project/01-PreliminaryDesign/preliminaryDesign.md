@@ -2,7 +2,7 @@
 
 ## 1.1 – Description of modification/addition to Linux
 
-We will be making modifications to the Linux's `touch` command, in collaborative efforts with `test`, and `echo`. With the combination of all three of these commands, users will have the ability to first, check or `test` if a file exists given a file name, then if a file under that name already exists, a message will be printed to the terminal informing the user of its existence, but if the file doesn't already exist, a new file will be made under the given name. This can be completed with the command `touch <filename> -test`. 
+We will be making modifications to the Linux's `touch` command, in collaborative efforts with `test`, and `echo`. With the combination of all three of these commands, users will have the ability to first, check or `test` if a file exists given a file name, then if a file under that name already exists, a message will be printed to the terminal informing the user of its existence. However, if the file doesn't already exist, a new file will be made under the given name. This can be completed with the command `touch <filename> -test`. 
 
 ## 1.2 – Rationale as to why this is a good idea, or what the good points of it are:
 
