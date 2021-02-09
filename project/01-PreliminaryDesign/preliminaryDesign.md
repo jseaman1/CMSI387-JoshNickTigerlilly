@@ -6,7 +6,7 @@ We will be making modifications to the Linux's `touch` command, in collaborative
 
 ## 1.2 – Rationale as to why this is a good idea, or what the good points of it are:
 
-Oftentimes, we tend to `touch` files that already exist, and fail to receive any indication of success or failure. As human beings, we crave confirmation and verification that our actions produced the desired result. However, with the current implementation of the `touch` command, there is ambiguity regarding whether or not the file name we provided with `touch` was created then, or had already been created and the only change that the command had was updating the file's access and modification timestamps to the current time. Our new command will solve this problem by providing the user with feedback if the file had already been created without unintentionally updating the file's access timestamps. Our command can be used as follows:
+Oftentimes, we tend to `touch` files that already exist, and fail to receive any indication of success or failure. As human beings, we crave confirmation and verification that our actions produced the desired result. However, with the current implementation of the `touch` command, there is ambiguity regarding whether or not the file name we provided with `touch` was created then, or had already been created and the only change that the command had was updating the file's access and modification timestamps to the current time. Our new command will solve this problem by providing the user with feedback if the file has already been created without unintentionally updating the file's access timestamps. Our command can be used as follows:
 
 ```
 touch <filename> -test
