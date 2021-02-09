@@ -6,7 +6,7 @@ We will be making modifications to the Linux's `touch` command, in collaborative
 
 ## 1.2 – Rationale as to why this is a good idea, or what the good points of it are:
 
-Oftentimes, we tend to `touch` files that already exist, and fail to receive any indication of success or failure. As human beings, we crave confirmating and verfication that our actions produced the desired result. However, with the current implementation of the `touch` command, there is ambiguity regarding whether or not the file name we provided with `touch` was created then, or had already been created and the only change that the command had was updating the file's access and modification timestamps to the current time. Our new command will solve this problem by providing the user with feedback if the file had already been created without unintelitionlly updating the file's access timestamps. Our command can be used as follows:
+Oftentimes, we tend to `touch` files that already exist, and fail to receive any indication of success or failure. As human beings, we crave confirmating and verfication that our actions produced the desired result. However, with the current implementation of the `touch` command, there is ambiguity regarding whether or not the file name we provided with `touch` was created then, or had already been created and the only change that the command had was updating the file's access and modification timestamps to the current time. Our new command will solve this problem by providing the user with feedback if the file had already been created without unintentionally updating the file's access timestamps. Our command can be used as follows:
 
 ```
 touch <filename> -test
@@ -18,7 +18,7 @@ With this new and improved command, we have now introduced greater ease, usabili
 ## 1.3 – Preliminary list of [possible] Linux modules that will be modified/affected
 
 * `touch`: This modification would be added to the `touch` module. Using `-test` after typing the name of the potentially new file will now perform `test <filename>` and `echo "This file already exists"` if the file already exists and `touch <newfile>` if the file does not already exists at the same time.
-* `echo`: Although `echo` won't be directly modified, we will be referencing its module information for its purpose in `touch <filename> -test`.
+* `echo`: Although `echo` won't be directly modified, we will be referencing its module information for its purpose in `touch <filename> -test` to provide user feedback in the form of a simple confirmation message.
 * `test`: Similarly, although `test` will not be modified, we plan on referencing its module information an documentation in order to check if a file is already in existence before creating it. 
  
 
