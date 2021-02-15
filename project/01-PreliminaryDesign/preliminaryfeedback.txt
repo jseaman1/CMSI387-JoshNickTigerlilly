@@ -1,0 +1,23 @@
+
+Nick Morgan, Josh Seaman, and Tigerlilly Ziets
+CMSI 387 Project Spring 2021
+Preliminary Design Document
+Evaluation and Feedback
+======================================================
+
+'touch' mod ~ add user feedback and '-test' switch to the 'touch' command
+
+Wow, this is INSANELY USEFUL!!  I can't tell you how many times I've done
+EXACTLY what your addition would prevent.  This is SO GREAT and I don't get
+why no one has thought of it or implemented it yet!
+
+I can't wait to see this one in action!
+
+Full credit earned.
+
+Semester so far:
+   homework01 100.0% * 10 points = 10.00 points
+   delivery01 100.0% * 10 points = 10.00 points
+                          total:   20.00out of 20 = 100.0% which is an A-plus
+
+Keep up the great work, you two!
