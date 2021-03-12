@@ -9,8 +9,7 @@ public class BoundedBufferModifiedQ4 {
        contains the (i+1)th oldest entry,
        for all i such that 0 <= i < numOccupied  */
        
-    public synchronized void insert(Object o)
-      throws InterruptedException
+    public synchronized void insert(Object o) throws InterruptedException
     {
       while(numOccupied == buffer.length)
         wait();
@@ -20,13 +19,13 @@ public class BoundedBufferModifiedQ4 {
       //modification - inserting into empty buffer
       if(numOccupied == 0){
         notifyAll();
-      }
+        }
       
     }
     public synchronized Object retrieve()
       throws InterruptedException
     {
-      while(numOccupied == 0)
+      while(numOccupied == 0) 
         // wait for data
         wait();
       Object retrieved = buffer[firstOccupied];
@@ -34,7 +33,7 @@ public class BoundedBufferModifiedQ4 {
       firstOccupied = (firstOccupied + 1) % buffer.length;
       numOccupied--;
       // modification - removing from full buffer
-      if(numOccupied == 19) 
+      if(numOccupied == 19) {
         notifyAll();
       }
       
