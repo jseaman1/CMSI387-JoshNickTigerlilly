@@ -15,7 +15,6 @@ for size in arrSizes:
       x += 4096
   finalTime = time.time() - t
   print("\nSize: {}".format(size))
-  # print("times accessed: \t{}".format(timesAccessed))
   print("avg time: \t{}".format(finalTime / timesAccessed))
 
     
