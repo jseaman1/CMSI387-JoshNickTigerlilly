@@ -5,7 +5,7 @@ class Question_9_Loops {
     public static void main(String args[]) { 
 
         
-        int arrayLength = 5000;
+        int arrayLength = 4096;
         Random rd = new Random();
         byte[] testArray = new byte[arrayLength];
         rd.nextBytes(testArray);
