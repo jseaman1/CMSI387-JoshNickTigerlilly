@@ -26,9 +26,6 @@ public class BoundedBufferTests {
           }
         }
 
-        // insertRunnable i1 = new insertRunnable();
-        // retriveRunnable r2 = new retriveRunnable();
-
         InsertRunnable t1 = new InsertRunnable();
         RetriveRunnable t2 = new RetriveRunnable();
         
