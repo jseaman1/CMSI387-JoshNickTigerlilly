@@ -27,6 +27,12 @@ Question 6 virtual address xlate:    5/ 5 points
 Question 7 calc. explanation:        5/ 5 points
 
 Question 8 loop 4096 analysis:      20/20 points
+   I wonder if doing this program in Python caused any differences from if
+      you had done it in "C" instead.  It would be worth an experiment just
+      to see if you can get your operating system to make the virtual memory
+      system kick in, which should show you some noticeable difference in
+      the time required.  You can use the "C" functions in "time.h" to get
+      the system time.
 
 Question 9 fork() tree:             15/15 points
 
@@ -36,5 +42,7 @@ Comments:
 ---------
 Great work on this assignment!  Nothing more to say, you three are
 obviously ROCK STARS!!
+
+Your analyses are very good and the report on problem 8 was thorough.
 
 Keep up the good work!
