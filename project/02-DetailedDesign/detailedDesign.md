@@ -15,8 +15,8 @@ Not Applicable.
 
 ## 2.4 – List or table of explanations of all command line options that will be implemented
 
-| Command Line Options     | Explanation |
+| Command Line Options               | Explanation |
 |------------------------------------|------------------------------------------------------------------------------------|
-| `test -f <file_name>`    | Tests if a file with the name `file_name` exists in the current directory. |
-| `echo <string>`       | Outputs and prints the string, `string`, taken as an argument.  |
-| `touch <file_name> -test` | Tests if a file with the name `file_name` exists in the current directory and if so, prints "File already exists", and if not, creates a new file with the name `file_name`. |
+| `test -f <file_name>`              | Tests if a file with the name `file_name` exists in the current directory. |
+| `echo <string>`                    | Outputs and prints the string, `string`, taken as an argument.  |
+| `touch <file_name> -test`          | Tests if a file with the name `file_name` exists in the current directory and if so, prints "File already exists", and if not, creates a new file with the name `file_name`. |
