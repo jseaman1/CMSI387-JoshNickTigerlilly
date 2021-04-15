@@ -1,0 +1,48 @@
+
+
+CMSI 387 Operating Systems
+Results for Homework #2 Evaluation
+   Nick, Josh, and Tigerlilly
+====================================
+
+Question 1 mutex reversing:          5/ 5 points
+
+Question 2 auditing code change:     5/ 5 points
+
+Question 3 test program:            20/20 points
+
+Question 4 notifyall() addition:    10/10 points
+
+Question 5a 2-phase locking:         5/ 5 points
+
+Question 5b short read locks:        5/ 5 points
+
+Question 5c snapshot isolation:      5/ 5 points
+
+Question 6 virtual address xlate:    5/ 5 points
+   You have the virtual and physical backwards, but you have the correct
+      values for the calculations, so you earn full credit.  Just swap the
+      column headers in your table...  :grin:
+
+Question 7 calc. explanation:        5/ 5 points
+
+Question 8 loop 4096 analysis:      20/20 points
+   I wonder if doing this program in Python caused any differences from if
+      you had done it in "C" instead.  It would be worth an experiment just
+      to see if you can get your operating system to make the virtual memory
+      system kick in, which should show you some noticeable difference in
+      the time required.  You can use the "C" functions in "time.h" to get
+      the system time.
+
+Question 9 fork() tree:             15/15 points
+
+Total 100 out of 100 = 100.00% which is an A-plus
+
+Comments:
+---------
+Great work on this assignment!  Nothing more to say, you three are
+obviously ROCK STARS!!
+
+Your analyses are very good and the report on problem 8 was thorough.
+
+Keep up the good work!

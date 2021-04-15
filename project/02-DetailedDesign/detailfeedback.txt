@@ -1,0 +1,27 @@
+
+Nick Morgan, Josh Seaman, and Tigerlilly Ziets
+CMSI 387 Project Spring 2021
+Detailed Design Document
+Evaluation and Feedback
+======================================================
+
+'touch' mod ~ add user feedback and '-test' switch to the 'touch' command
+
+Very nice work on this deliverable!  You've hit all the requirements.  I do
+notice that you have the three existing commands in your "command line
+options" section.  This was actually intended to list the options to YOUR
+command, which from reading the text should be "-test" as the only one, to
+test if the file exists.
+
+I can't wait to see this one in action!
+
+Full credit earned.
+
+Semester so far:
+   homework01 100.0% * 10 points = 10.00 points
+   homework02 100.0% * 10 points = 10.00 points
+   delivery01 100.0% * 10 points = 10.00 points
+   delivery02 100.0% * 10 points = 10.00 points
+                          total:   40.00out of 04 = 100.0% which is an A-plus
+
+Keep up the great work, you three!
