@@ -19,7 +19,7 @@ int main(){
     // When there is no error, open returns the smallest file
     // descriptor not already in use by this process, so having
     // closed STDOUT_FILENO, the open should reuse that number.
-    if(open("/etc/passwd", O_RDONLY) < 0){
+    if(open("/etc/passwd", O_RDONLY, S_IRUSR) < 0){
       perror("error opening /etc/passwd");
       return -1;
     }
