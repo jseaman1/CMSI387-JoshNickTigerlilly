@@ -19,13 +19,12 @@ int main(){
     // When there is no error, open returns the smallest file
     // descriptor not already in use by this process, so having
     // closed STDOUT_FILENO, the open should reuse that number.
-    if(open("my-processes", O_WRONLY | O_CREAT | O_TRUNC,
-            S_IRUSR | S_IWUSR) < 0){
-      perror("error opening my-processes");
+    if(open("/etc/passwd", O_RDONLY) < 0){
+      perror("error opening /etc/passwd");
       return -1;
     }
-    execlp("ps", "ps", "l", NULL);  // ps with option letter l
-    perror("error executing ps");
+    execlp("tr", "tr", "a-z", "A-Z", NULL);  // ps with option letter l
+    perror("error executing tr");
     return -1;
   } else {
     if(waitpid(returnedValue, 0, 0) < 0){
