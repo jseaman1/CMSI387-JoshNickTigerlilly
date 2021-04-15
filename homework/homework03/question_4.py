@@ -13,4 +13,5 @@ def check_for_x(filename):
           return
       print("failure no x found!")
 
-check_for_x("test.txt")
+check_for_x("success_test.txt")
+check_for_x("failure_test.txt")
