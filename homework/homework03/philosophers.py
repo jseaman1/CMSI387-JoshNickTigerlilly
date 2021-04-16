@@ -1,23 +1,27 @@
+import random
+
 philosophers = {
-    0: {"Lfork": 0, "Rfork": 4, "eating": False},
-    1: {"Lfork": 1, "Rfork": 0, "eating": False},
-    2: {"Lfork": 2, "Rfork": 1, "eating": False},
-    3: {"Lfork": 3, "Rfork": 2, "eating": False},
-    4: {"Lfork": 4, "Rfork": 3, "eating": False},
+    0: {"Lfork": 0, "Rfork": 4, "eating": False, "waiting": False, "waitTime": 0},
+    1: {"Lfork": 1, "Rfork": 0, "eating": False, "waiting": False, "waitTime": 0},
+    2: {"Lfork": 2, "Rfork": 1, "eating": False, "waiting": False, "waitTime": 0},
+    3: {"Lfork": 3, "Rfork": 2, "eating": False, "waiting": False, "waitTime": 0},
+    4: {"Lfork": 4, "Rfork": 3, "eating": False, "waiting": False, "waitTime": 0},
 }
+#locking/releasing (thinking vs eating)
+#spawn 5 threads (philos) 3 states: hungry, eating, thinking
 
 forks = {
-    0: "False",
-    1: "False",
-    2: "False",
-    3: "False",
-    4: "False",
+    0: False,
+    1: False,
+    2: False,
+    3: False,
+    4: False,
 }
 
 
 # Uses Dijkstra's resource hierarchy algorithm to determine who is eating: 
 # all but one philosopher grabs their left fork, leaving 1 fork on a philosopher's right resulting in that philosopher eating
-# @param philoNoEat the index of the philosopher who will not grab a fork 
+# @param philoNoEat - the index of the philosopher who will not grab a fork 
 def eat(philoNoEat):
     for philo in philosophers:
         if philo == philoNoEat:
@@ -26,14 +30,24 @@ def eat(philoNoEat):
         else:
             forks[philosophers[philo]["Lfork"]] = True
     for philo in philosophers:
-        if philosophers[philo]["Rfork"] == unusedFork:
+        if philosophers[philo]["Rfork"] == unusedFork & philosophers[philo]["waiting"] == False:
             forks[philosophers[philo]["Rfork"]] = True
             philosophers[philo]["eating"] = True
             break
     whoEatin()
     forksDown()
-            
+    decrementWaitTime()
 
+            
+            
+def decrementWaitTime():
+    for philo in philosophers:
+        if philosophers[philo]["waiting"] == True & philosophers[philo]["waitTime"] > 1:
+            philosophers[philo]["waitTime"] = philosophers[philo]["waitTime"] - 1
+            print("Philosopher {} is now waiting {} seconds".format(philo, philosophers[philo]["waitTime"]))
+        elif philosophers[philo]["waiting"] == True & philosophers[philo]["waitTime"] == 0:
+            philosophers[philo]["waiting"] == False
+            print("Philosopher {} is no longer waiting".format(philo))
         
 # outputs who is currently eating
 def whoEatin():
@@ -46,34 +60,37 @@ def forksDown():
     for fork in forks:
         forks[fork] = False;
     for philo in philosophers:
-        philosophers[philo]["eating"] = False;            
+        philosophers[philo]["eating"] = False;   
             
 
-# extra function that allows you to choose which philosopher you want to feed with index 0-4
-def feed(philosopher):
-    if philosopher == 0:
-        eat(4)
-    elif philosopher == 1:
-        eat(0)
-    elif philosopher == 2:
-        eat(1)
-    elif philosopher == 3:
-        eat(2)
-    elif philosopher == 4:
-        eat(3)
-    else:
-        raise ValueError('Non-existant philosophers cannot be feed, expected a value 0-4')
+def initializePhilos():
+    for i in range(5):
+        if random.randrange(0, 3, 1) != 1:
+            philosophers[i]["waiting"] = True
+            philosophers[i]["waitTime"] = random.randrange(0, 5, 1)
+    for i in range(5):
+        if philosophers[i]["waiting"] == True:
+            print("Philosopher {} is currently waiting {} seconds".format(i, philosophers[i]["waitTime"]))
+        else:
+            print("Philosopher {} is not waiting".format(i))
+
+def resetWaitTimes():
+    for i in range(5):
+        philosophers[i]["waiting"] = False
+        philosophers[i]["waitTime"] = 0
+
+for round in range(5):
+    print("-----Round {}-----".format(round))
+    initializePhilos()
+    for munch in range(5):
+        eat(munch)
 
 
 # for rounds in range(5):
+#     initializePhilos()
 #     print("")
 #     print("-----------ROUND {}-----------".format(rounds+1))
 #     for munch in range(5):
-#         print("------MUNCH ROUND {}------".format(munch+1))
 #         eat(munch)
+#     resetWaitTimes()
     
-# feed(0)
-# feed(1)
-# feed(2)
-# feed(3)
-# feed(4)
