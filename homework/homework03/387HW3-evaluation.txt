@@ -1,0 +1,43 @@
+
+Evaluation for Homework 3
+CMSI 387 - Operating Systems
+============================
+
+Question 1: dining philosophers program:   19.00 out of 20 possible
+Question 2: why immune explanation     :   10.00 out of 10 possible
+Question 3: file processing "C" program:   20.00 out of 20 possible
+Question 4: mmap program "C" program   :   19.00 out of 20 possible
+Question 5: appropriate class explained:   10.00 out of 10 possible
+
+Total possible points:     80.00 points
+           your score:     78.00 points
+                total:     78.00/80.00 = 97.5% which is an A-plus
+
+Comments:
+---------
+
+Nice work on this one.  Here are a couple of comments:
+
+On your dining philosophers program, it isn't supposed to end.  If there is
+no deadlock, it should keep going, like the Energizer Bunny.  However, your
+code looks like if it were modified to allow that, it would be fine so you
+earn nearly full credit.
+
+For the mmap program, it seems to be working, but I get an error traceback:
+Traceback (most recent call last):
+  File "question_4.py", line 18, in <module>
+    check_for_x("q4_test/late_success.txt")
+  File "question_4.py", line 6, in check_for_x
+    with open(filename, mode="r", encoding="utf8") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'q4_test/late_success.txt'
+
+All in all, though, good job!!
+==============
+SEMESTER SO FAR, COMING UP TO FINAL EXAM:
+   homework01:  12/12 = 100.00% of 10 pts = 10.00 pts
+   homework02:  97/97 = 100.00% of 10 pts = 10.00 pts
+   homework03:  78/80 =  97.50% of 10 pts =  9.75 pts
+        total:                              29.75 pts out of 30.00
+                        which is  99.17% which is an A-plus
+
+Very good work!!
