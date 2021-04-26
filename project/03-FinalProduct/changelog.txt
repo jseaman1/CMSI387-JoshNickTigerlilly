@@ -60,11 +60,11 @@ Building A Kernel on Windows
    Enter password and press enter
    This will switch to root user and terminal with go from ending in '...#' to '...$' to indicate such
 
-7. run "apt install gcc"
+7. run: "apt install gcc"
    When prompted enter y and press enter
    Installs gcc
 
-8. run "apt install make"
+8. run: "apt install make"
    Installs make
 
 9. Download kernel source
@@ -72,15 +72,15 @@ Building A Kernel on Windows
    cd into /usr/src
    run "mv /home/<user>/*.tar.xz ."
 
-10. run "tar xvf linux-5.11.13.tar.xz"
+10. run: "tar xvf linux-5.11.13.tar.xz"
    Will untar the tape archive file into a directory named "linux-5.11.16"
    cd into new directory "linux-5.11.16"
 
-11. run "sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev"
+11. run: "sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev"
    When prompted enter y and press enter
    Installs build tools
 
-12. run "make menuconfig"
+12. run: "make menuconfig"
    Navigate through menus using arrow keys
    Select save and press enter
    Use default ".config" file name and press enter
@@ -91,11 +91,11 @@ Building A Kernel on Windows
       CONFIG_SYSTEM_TRUSTED_KEYS
       CONFIG_MODULE_SIG_KEY
 
-14. run "make -j 4"
+14. run: "make -j 4"
    Starts building using 4 cores
    Press enter through the next few prompts
 
-15. run "make moduels_install -j 4 && make install -j 4"
+15. run: "make moduels_install -j 4 && make install -j 4"
    Starts install for build
 
 16. reboot and get ready for coreutils install!
@@ -110,7 +110,7 @@ INSTALL AND BUILD GNU CORE UTILITIES
    Go to "https://ftp.gnu.org/gnu/coreutils/" and select whichever tarball you prefer (we chose 8.31)  
    run "mv /home/<user>/*.tar.xz ."
 
-18. run "tar xvf coreutils-8.31.tar.xz"
+18. run: "tar xvf coreutils-8.31.tar.xz"
    Will untar the tape archive file into a directory named "coreutils-8.31"
    cd into new directory "coreutils-8.31"
 
@@ -118,16 +118,16 @@ INSTALL AND BUILD GNU CORE UTILITIES
    run "nano configure"
    Set "FORCE_UNSAFE_ENVIRONMENT=1"
 
-20. run "./confgiure"
+20. run: "./confgiure"
    execute modified configure script 
 
-21. run "make -j 4 && make install -j 4"
+21. run: "make -j 4 && make install -j 4"
    build and install coreutils to make sure it works before modification of touch.c source
 
 22. Edit source file of touch.c
    Changes we made are on our github
 
-23. run "make -j 4 && make install -j 4"
+23. run: "make -j 4 && make install -j 4"
    This will build new executables for C source files to allow modifications to be tested
 
 24. Once modifications work as intended, cd back into /usr/src/linux-5.11.16
