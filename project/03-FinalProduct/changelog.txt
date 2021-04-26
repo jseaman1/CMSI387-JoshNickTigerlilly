@@ -1,0 +1,137 @@
+INSTALL AND BUILD LINUX KERNEL  ~ CMSI 387 Spring Semester 2021
+====================================================
+    Nick Morgan
+    Tigerlilly Zietz
+    Josh Seamen
+
+Building A Kernel on Windows
+============================
+1. Install VirtualBox
+   Download latest version (we used 6.1.18) from https://www.virtualbox.org/wiki/Downloads 
+      follow directions to install
+   In VirtualBox:
+      Select "New" -> "Create Virtual Machine" pop up will appear
+      Press "Expert Mode" button at the bottom (yeah we're in the big leagues now)
+      Enter a name and place in any folder you choose
+      Select "Type" dropdown -> select Linux
+      Select "Version" dropdown -> select Ubuntu (64-bit)
+      Select as much RAM as you would like, recommended minimum 4096 MB (we used 6144MB), use as much as you can spare
+      Select "Create a virtual hard disk now"
+      Press "Create"
+      Select "VHD (Virtual Hard Disk) from the list
+      Select "Dynamically allocated"
+      Select as much hard disk space as you like, reommended minimum 50GB, use more to be safe (we used 60GB)
+      Select Create and poof your virtual machine is created, but we are quite done!
+      Select the new virtual machine and select the "Settings" button 
+      Select the "System" menu then select "Processor" tab
+      Select how many processor to dedicate to machine, recommended 3, use as much as you can spare
+      Select "OK" button at the bottom and your machine is fully set up!
+
+2. Install Ubuntu
+   Download latest stable release (LTS) of Ubuntu from (we used version 20.04.2.0): 
+      https://ubuntu.com/download/desktop
+   Select "Start" button -> virtual machine should pop up
+   Select the new Ubuntu (.iso) you just installed
+   Select "Start" button, wait for machine to load
+      change view model as you please by selecting "View" at the top menu bar
+   Select "Install Ubuntu" and select "Contine"
+   Select "Minimal installation" and select "Continue"
+   Select "Erase disk and install Ubuntu" don't worry this it won't affect your actually machine
+   Select "Install Now" -> select "Continue" from the "Write the changes to disks?"
+   Select your location and select "Continue"
+   Enter an account name, password (we used pwd), and tweak setting as you please, recommend to select "Log in automatically" button
+   Select "Continue" and let the machine install Ubuntu
+      After installation finishes pop to restart and select "Install Now"
+      After restart pop for a software update will appear, do it and let machine restart again after
+
+3. Tweak Ubuntu settings
+   Select arrow in top right corner and select "Settings", pop window with settings will appear
+   Select Power tab 
+   Select the "Blank Screen" dropdown menu and select "Never"
+   Adjust any other settings you feel you need!
+
+4. Open up the terminal and get ready to run some commands!
+
+5. run: "sudo passwd root"
+   Enter password and press enter
+   Enter new password and press enter, recommend to keep it the same
+
+6. run: "su -"
+   Enter password and press enter
+   This will switch to root user and terminal with go from ending in '...#' to '...$' to indicate such
+
+7. run "apt install gcc"
+   When prompted enter y and press enter
+   Installs gcc
+
+8. run "apt install make"
+   Installs make
+
+9. Download kernel source
+   Go to "https://cdn.kernel.org/" and select whichever tarball you prefer (we chose 5.11.16)  
+   cd into /usr/src
+   run "mv /home/<user>/*.tar.xz ."
+
+10. run "tar xvf linux-5.11.13.tar.xz"
+   Will untar the tape archive file into a directory named "linux-5.11.16"
+   cd into new directory "linux-5.11.16"
+
+11. run "sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev"
+   When prompted enter y and press enter
+   Installs build tools
+
+12. run "make menuconfig"
+   Navigate through menus using arrow keys
+   Select save and press enter
+   Use default ".config" file name and press enter
+   Menu will re-appear, navigate to exit and press enter
+
+13. edit .config file with whatever text editor (we used nano)
+   comment out:
+      CONFIG_SYSTEM_TRUSTED_KEYS
+      CONFIG_MODULE_SIG_KEY
+
+14. run "make -j 4"
+   Starts building using 4 cores
+   Press enter through the next few prompts
+
+15. run "make moduels_install -j 4 && make install -j 4"
+   Starts install for build
+
+16. reboot and get ready for coreutils install!
+   run "uname -a" to check if cuild worked
+
+====================================================
+INSTALL AND BUILD GNU CORE UTILITIES
+====================================================
+
+17. Download kernel source
+   As root user change to directory /usr/src/linux-5.11.16
+   Go to "https://ftp.gnu.org/gnu/coreutils/" and select whichever tarball you prefer (we chose 8.31)  
+   run "mv /home/<user>/*.tar.xz ."
+
+18. run "tar xvf coreutils-8.31.tar.xz"
+   Will untar the tape archive file into a directory named "coreutils-8.31"
+   cd into new directory "coreutils-8.31"
+
+19. edit configure executable file
+   run "nano configure"
+   Set "FORCE_UNSAFE_ENVIRONMENT=1"
+
+20. run "./confgiure"
+   execute modified configure script 
+
+21. run "make -j 4 && make install -j 4"
+   build and install coreutils to make sure it works before modification of touch.c source
+
+22. Edit source file of touch.c
+   Changes we made are on our github
+
+23. run "make -j 4 && make install -j 4"
+   This will build new executables for C source files to allow modifications to be tested
+
+24. Once modifications work as intended, cd back into /usr/src/linux-5.11.16
+   run "make -j 4 && make modules_install -j 4 && make install -j 4"
+   Will build new version of the kernel with the new modified touch command
+
+25. Reboot and new Ubuntu version with modified touch command should be ready :)
