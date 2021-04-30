@@ -118,7 +118,7 @@ INSTALL AND BUILD GNU CORE UTILITIES
    run "nano configure"
    Set "FORCE_UNSAFE_ENVIRONMENT=1"
 
-20. run: "./confgiure"
+20. run: "./configure"
    execute modified configure script 
 
 21. run: "make -j 4 && make install -j 4"
